@@ -65,11 +65,17 @@ set shiftwidth=4
 "去掉錯誤音
 set vb t_vb=
 au GuiEnter * set t_vb=
-" 選中狀態下 Ctrl+c 複製
-vmap <C-c> y
-" 對映全選+複製 ctrl+a
-map <C-A> ggVGY
-map! <C-A> <Esc>ggVGY
+" 全檔複製到系統剪貼簿
+nnoremap <silent> <C-a> :%y+<CR>
+
+" 視覺模式下 Ctrl-A → 複製選取內容
+vnoremap <silent> <C-a> "+y<Esc>
+
+" 插入模式下 Ctrl-A → 退回普通模式複製全檔，然後回到插入
+inoremap <silent> <C-a> <Esc>:%y+<CR>a
+
+" 保留視覺模式 Ctrl-C 複製到系統剪貼簿
+vnoremap <silent> <C-c> "+y
 map <F12> gg=G
 "共用剪貼簿
 set clipboard=unnamed
