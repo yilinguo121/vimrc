@@ -14,7 +14,7 @@ Plug 'wesleyche/Trinity'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
-autocmd BufNewFile *.cpp 0r ~/cpp_template.cpp
+autocmd BufNewFile *.cpp 0r ~/programming/c++/cpp_template.cpp
 
 " 顯示空白字符
 set list
